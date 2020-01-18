@@ -10,6 +10,10 @@ function generateHTML(data) {
   </head>
   <body>
     <style>
+    
+        h1{
+           font-size: 60px;
+        }
         .ul{
             list-style-type:none;
             right: 0;
@@ -20,13 +24,13 @@ function generateHTML(data) {
             margin: 20px;
         }
         .cardbody{
-            width: 200px;
+            width: 250px;
             border-radius: 10px;
             box-shadow: 5px 10px 8px #888888;
         }
     </style>
-  <div class="jumbotron" style="background: gray" >
-    <h1 class="text-center" >Company Employees</h1>
+  <div class="jumbotron" style="background: rgb(115, 115, 218)" >
+    <h1 class="text-center" class="font-weight-bold" >Team Roster</h1>
     </div>
     <div class='container'>
     <ul class="ul">
@@ -58,9 +62,9 @@ function generateHTML(data) {
   function makeManagerCard(x) {
     let mangerCard = `
     <li>
-    <div class="col-md-3">
+    <div class="col-lg-4">
     <div class="card cardbody">
-      <div class="card-header" style="background: #5178ED">
+      <div class="card-header" style="background: rgb(115, 115, 218)">
                    ${x.name}<br>
                    <div class="fa fa-edit">${x.getRole()}</div>
                   </div>
@@ -92,9 +96,9 @@ function generateHTML(data) {
   function makeEngineerCard(x) {
     let engineerCard = `
         <li>
-        <div class="col-md-3">
+        <div class="col-lg-4">
                     <div class="card cardbody">
-                      <div class="card-header" style="background: #5178ED">
+                      <div class="card-header" style="background: rgb(115, 115, 218)">
                                    ${x.name}<br>
                                   <div><i class="fa fa-book"></i> ${x.getRole()}</div><i class="">
                                   </div>
@@ -126,9 +130,9 @@ function generateHTML(data) {
   function makeInternCard(x) {
     let internCard = `
     <li>
-    <div class="col-md-3">
+    <div class="col-lg-4">
         <div class="card cardbody">
-          <div class="card-header" style="background: #5178ED">
+          <div class="card-header" style="background: rgb(115, 115, 218)">
                  ${x.name}<br>
                 <div><i class="fa fa-coffee"></i> ${x.getRole()}</div>
                 </div>

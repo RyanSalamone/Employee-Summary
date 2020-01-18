@@ -42,22 +42,22 @@ const newEmployee = () => {
               {
                 type: "input",
                 message:
-                  "I see " +
+                  "What is the manager, " +
                   data.name +
-                  " is a manager. What is their office number?",
+                  "'s, office number?",
                 name: "office"
               }
             ])
             .then(function(res) {
-              const officeNum = res.office;
-              const teamManager = new Manager(
+              const employeeOffice = res.office;
+              const employeeManager = new Manager(
                 data.name,
                 data.id,
                 data.email,
-                officeNum,
+                employeeOffice,
                 "Manager"
               );
-              team.push(teamManager);
+              team.push(employeeManager);
             });
           break;
         case "Engineer":
@@ -66,22 +66,22 @@ const newEmployee = () => {
               {
                 type: "input",
                 message:
-                  "I see " +
+                  "What is the Engineer, " +
                   data.name +
-                  " is an engineer. What is their github username?",
+                  "'s, github username?",
                 name: "github"
               }
             ])
             .then(function(res) {
-              const githubName = res.github;
-              const teamEngineer = new Engineer(
+              const gitUser = res.github;
+              const employeeEngineer = new Engineer(
                 data.name,
                 data.id,
                 data.email,
-                githubName,
+                gitUser,
                 "Engineer"
               );
-              team.push(teamEngineer);
+              team.push(employeeEngineer);
             });
           break;
         case "Intern":
@@ -90,22 +90,22 @@ const newEmployee = () => {
               {
                 type: "input",
                 message:
-                  "I see " +
+                  "What college does/did the Intern, " +
                   data.name +
-                  "is an intern. What is school does/did they attend?",
+                  ", attend?",
                 name: "school"
               }
             ])
             .then(function(res) {
-              const internSchool = res.school;
-              const teamIntern = new Intern(
+              const collegeInput = res.school;
+              const employeeIntern = new Intern(
                 data.name,
                 data.id,
                 data.email,
-                internSchool,
+                collegeInput,
                 "Intern"
               );
-              team.push(teamIntern);
+              team.push(employeeIntern);
             });
           break;
       }
@@ -121,7 +121,7 @@ const addNext = () => {
       {
         type: "input",
         message:
-          'Add another team member? Type "yes" to add employee, hit any enter to exit and generate roster.',
+          'Type "yes" to add another employee, or press "Enter" to generate your roster!',
         name: "add"
       }
     ])
@@ -136,14 +136,14 @@ const addNext = () => {
 };
 
 async function completedRoster(team){
-    console.log("Thank you. Your roster is being generated");
+    console.log("One roster - comin' up!");
     console.log(team);
     const html = await generateHTML(team);
     writeFileAsync("./output/team.html", html);
 }
 
 function init(){
-  console.log("Welcome to your Employee Roster. Please enter your employees name, ID, and role. Your options are Manager, Intern, and Engineer. Please spell the role correctly and with a capital letter, otherwise the employee will not be logged and the program will exit.")
+  console.log("Create Your Employee Roster Here - Start by entering the employee ID and continue adding from there, and make sure to use capital letters")
   newEmployee();
 }
 
